@@ -1,8 +1,11 @@
-import dec1.dec1
-import dec2.dec2
-import dec3.dec3
-import dec4.dec4
-import dec5.dec5
+import importlib
+import sys
+
+
+if len(sys.argv) <= 1:
+    luke = 1
+else:
+    luke = int(sys.argv[1])
 
 
 def get_data(file):
@@ -18,17 +21,7 @@ def print_day(n, part_one_answer, part_two_answer):
     print(f"Part Two: {part_two_answer}")
 
 
-dec1_data = get_data(f"dec1/data/input.txt")
-print_day(1, dec1.dec1.part_one(dec1_data), dec1.dec1.part_two(dec1_data))
-
-dec2_data = get_data(f"dec2/data/input.txt")
-print_day(2, dec2.dec2.part_one(dec2_data), dec2.dec2.part_two(dec2_data))
-
-dec3_data = get_data(f"dec3/data/input.txt")
-print_day(3, dec3.dec3.part_one(dec3_data), dec3.dec3.part_two(dec3_data))
-
-dec4_data = get_data(f"dec4/data/input.txt")
-print_day(4, dec4.dec4.part_one(dec4_data), dec4.dec4.part_two(dec4_data))
-
-dec5_data = get_data(f"dec5/data/input.txt")
-print_day(5, dec5.dec5.part_one(dec5_data), dec5.dec5.part_two(dec5_data))
+for day in range(1, luke + 1):
+    module = importlib.import_module(f"dec{day}.dec{day}")
+    data = get_data(f"dec{day}/data/input.txt")
+    print_day(day, module.part_one(data), module.part_two(data))
