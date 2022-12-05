@@ -1,4 +1,4 @@
-from dec5.dec5 import part_one, part_two
+from dec5.dec5 import part_one, part_two, get_instructions, get_stacks, stacktops
 
 data = """    [D]    
 [N] [C]    
@@ -16,4 +16,16 @@ def test_part_one():
 
 
 def test_part_two():
-    assert part_two(data) == 0
+    assert part_two(data) == "MCD"
+
+
+def test_instructions():
+    assert get_instructions(data)[0] == "move 1 from 2 to 1"
+
+
+def test_get_stacks():
+    assert get_stacks(data)[1] == ['Z', 'N']
+
+
+def test_stacktops():
+    assert stacktops(get_stacks(data)) == "NDP"

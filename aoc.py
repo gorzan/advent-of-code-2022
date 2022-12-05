@@ -2,6 +2,8 @@ import dec1.dec1
 import dec2.dec2
 import dec3.dec3
 import dec4.dec4
+import dec5.dec5
+
 
 def get_data(file):
     with open(file) as f:
@@ -27,3 +29,6 @@ print_day(3, dec3.dec3.part_one(dec3_data), dec3.dec3.part_two(dec3_data))
 
 dec4_data = get_data(f"dec4/data/input.txt")
 print_day(4, dec4.dec4.part_one(dec4_data), dec4.dec4.part_two(dec4_data))
+
+dec5_data = get_data(f"dec5/data/input.txt")
+print_day(5, dec5.dec5.part_one(dec5_data), dec5.dec5.part_two(dec5_data))
